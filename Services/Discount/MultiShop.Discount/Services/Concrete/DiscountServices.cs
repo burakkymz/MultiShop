@@ -14,12 +14,18 @@ namespace MultiShop.Discount.Services.Concrete
             _dapperContext = dapperContext;
         }
 
-        public async Task<List<ResultCouponDto>> GetAllCouponAsync()
+
+        public async Task<List<ResultDiscountCouponDto>> GetAllDiscountCouponAsync()
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM Coupons";
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultDiscountCouponDto>(query);
+                return values.ToList();
+            }
         }
 
-        public async Task CrateCouponAsync(CreateCouponDto createCouponDto)
+        public async Task CrateDiscountCouponAsync(CreateDiscountCouponDto createCouponDto)
         {
             string query = "INSERT INTO Coupons (Code, Rate, IsActive, ValidDate) " +
                            "VALUES (@code, @rate, @isActive, @validDate)";
@@ -34,19 +40,43 @@ namespace MultiShop.Discount.Services.Concrete
             }
         }
 
-        public async Task UpdateCouponAsync(UpdateCouponDto updateCouponDto)
+        public async Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateCouponDto)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Coupons SET Code = @code, Rate = @rate, IsActive = @isActive, ValidDate = @validDate " +
+                           "WHERE CouponId = @couponId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", updateCouponDto.Code);
+            parameters.Add("@rate", updateCouponDto.Rate);
+            parameters.Add("@isActive", updateCouponDto.IsActive);
+            parameters.Add("@validDate", updateCouponDto.ValidDate);
+            parameters.Add("@couponId", updateCouponDto.CouponId);
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
-        public async Task DeleteCouponAsync(int id)
+        public async Task DeleteDiscountCouponAsync(int id)
         {
-            throw new NotImplementedException();
+            string query = "DELETE FROM Coupons WHERE CouponId = @couponId";
+            var paramaters = new DynamicParameters();
+            paramaters.Add("@couponId", id);
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, paramaters);
+            }
         }
 
-        public async Task<GetByIdCouponDto> GetByIdCouponAsync(int id)
+        public async Task<GetByIdDiscountCouponDto> GetByIdDiscountCouponAsync(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM Coupons WHERE CouponId = @couponId";
+            var paramaters = new DynamicParameters();
+            paramaters.Add("@couponId", id);
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query, paramaters);
+                return values;
+            }
         }
     }
 }
