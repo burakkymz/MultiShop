@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\AddressCommands\" />
     <Folder Include="Features\CQRS\Commands\OrderDetailCommands\" />
-    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
     <Folder Include="Features\CQRS\Handlers\OrderDetailHandlers\" />
     <Folder Include="Features\CQRS\Queries\OrderDetailQueries\" />
     <Folder Include="Features\CQRS\Results\OrderDetailResults\" />
@@ -18,6 +16,10 @@
     <Folder Include="Features\Mediator\Queries\OrderingQueries\" />
     <Folder Include="Features\Mediator\Results\OrderingResults\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Order.Domain\MultiShop.Order.Domain.csproj" />
   </ItemGroup>
 
 </Project>
