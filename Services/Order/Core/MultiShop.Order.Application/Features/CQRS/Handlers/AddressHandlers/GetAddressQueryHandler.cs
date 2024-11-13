@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries;
 using MultiShop.Order.Application.Features.CQRS.Results.AddressResults;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
