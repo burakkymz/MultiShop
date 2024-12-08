@@ -48,7 +48,7 @@ namespace MultiShop.Order.WebApi.Controllers
             return Ok("Adres bilgisi başarıyla eklendi");
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateAddress(UpdateAddressCommand command)
         {
             await _updateAddressCommandHandler.Handle(command);

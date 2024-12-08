@@ -24,7 +24,7 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
             var values = await _repository.GetAllAsync();
             return values.Select(x => new GetAddressQueryResult
             {
-                AddresId = x.AddresId,
+                AddresId = x.AddressId,
                 City = x.City,
                 Detail = x.Detail,
                 District = x.District,
