@@ -82,7 +82,7 @@ namespace MultiShop.IdentityServer
                 ClientId = "MultiShopAdminId",
                 ClientName = "Multi Shop Admin User",
                 ClientSecrets = {new Secret("multishopsecret".Sha256())},
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 AllowedScopes =
                 {
                     "OrderFullPermission", "DiscountFullPermission", 
