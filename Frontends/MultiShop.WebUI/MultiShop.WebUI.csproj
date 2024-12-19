@@ -21,7 +21,6 @@
     <Folder Include="ViewComponents\ContactViewComponents\" />
     <Folder Include="ViewComponents\OrderViewComponents\" />
     <Folder Include="ViewComponents\ProductDetailViewComponents\" />
-    <Folder Include="ViewComponents\ProductListViewComponents\" />
     <Folder Include="ViewComponents\ShoppingCartViewComponents\" />
   </ItemGroup>
 
