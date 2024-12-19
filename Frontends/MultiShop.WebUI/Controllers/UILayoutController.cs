@@ -2,9 +2,9 @@
 
 namespace MultiShop.WebUI.Controllers
 {
-    public class AdminLayoutController : Controller
+    public class UILayoutController : Controller
     {
-        public IActionResult Index()
+        public IActionResult _UILayout()
         {
             return View();
         }
