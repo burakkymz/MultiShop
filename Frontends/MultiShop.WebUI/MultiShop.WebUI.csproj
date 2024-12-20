@@ -18,10 +18,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewComponents\ContactViewComponents\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="ViewComponents\OrderViewComponents\" />
-    <Folder Include="ViewComponents\ProductDetailViewComponents\" />
-    <Folder Include="ViewComponents\ShoppingCartViewComponents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Templates\admin\help-documentation\assets\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\help-documentation\assets\blueprint-css\plugins\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\app\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\charts\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\component\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\dist\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\forms\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\maps\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\pages\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\admin\html\tables\et-line-font\fonts\.DS_Store" />
   </ItemGroup>
 
 </Project>
