@@ -96,7 +96,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        [Route("UpdateCategory/{id}")]
+        [Route("UpdateProduct/{id}")]
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
