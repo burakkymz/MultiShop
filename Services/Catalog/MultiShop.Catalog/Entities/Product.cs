@@ -12,6 +12,8 @@ namespace MultiShop.Catalog.Entities
         public decimal ProductPrice { get; set; }
         public string ImageUrl { get; set; }
         public string ProductDescription { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryID { get; set; }
 
         [BsonIgnore]
