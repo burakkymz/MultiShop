@@ -1,0 +1,114 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text;
+using MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos;
+
+namespace MultiShop.WebUI.Areas.Admin.Controllers
+{
+    [Area("Admin")]
+    [Route("Admin/FeatureSlider")]
+
+    public class FeatureSlidersController : Controller
+    {
+        private readonly IHttpClientFactory _clientFactory;
+
+        public FeatureSlidersController(IHttpClientFactory clientFactory)
+        {
+            _clientFactory = clientFactory;
+        }
+
+        [Route("Index")]
+        public async Task<IActionResult> Index()
+        {
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Öne Çıkan Görseller";
+            ViewBag.v2 = "Öne Çıkan Görsel Listesi";
+            ViewBag.v3 = "Öne Çıkan Görsel İşemleri";
+
+            var client = _clientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7270/api/FeatureSliders");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultFeatureSliderDto>>(jsonData);
+                return View(values);
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        [Route("CreateFeatureSlider")]
+        public IActionResult CreateFeatureSlider()
+        {
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Öne Çıkan Görseller";
+            ViewBag.v2 = "Öne Çıkan Görsel Listesi";
+            ViewBag.v3 = "Öne Çıkan Görsel İşemleri";
+            return View();
+        }
+
+        [HttpPost]
+        [Route("CreateFeatureSlider")]
+        public async Task<IActionResult> CreateFeatureSlider(CreateFeatureSliderDto createFeatureSliderDto)
+        {
+            createFeatureSliderDto.Status = false;
+            var client = _clientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(createFeatureSliderDto);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7270/api/FeatureSliders", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "FeatureSliders", new { area = "Admin" });
+            }
+            return View();
+        }
+
+        [Route("DeleteFeatureSlider/{id}")]
+        public async Task<IActionResult> DeleteFeatureSlider(string id)
+        {
+            var client = _clientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync("https://localhost:7270/api/FeatureSliders?id=" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "FeatureSliders", new { area = "Admin" });
+            }
+            return View();
+        }
+
+        [Route("UpdateFeatureSlider/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> UpdateFeatureSlider(string id)
+        {
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Öne Çıkan Görseller";
+            ViewBag.v2 = "Öne Çıkan Görsel Listesi";
+            ViewBag.v3 = "Öne Çıkan Görsel İşemleri";
+
+            var client = _clientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7270/api/FeatureSliders/" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateFeatureSliderDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        [Route("UpdateFeatureSlider/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> UpdateFeatureSlider(UpdateFeatureSliderDto updateFeatureSliderDto)
+        {
+            var client = _clientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(updateFeatureSliderDto);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("https://localhost:7270/api/FeatureSliders/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "FeatureSliders", new { area = "Admin" });
+            }
+            return View();
+        }
+    }
+}
