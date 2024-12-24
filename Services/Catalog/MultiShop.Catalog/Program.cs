@@ -12,6 +12,8 @@ using MultiShop.Catalog.Settings.Concrete;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.Catalog.Entities;
+using MultiShop.Catalog.Services.FeatureServices.Abstract;
+using MultiShop.Catalog.Services.FeatureServices.Concrete;
 using MultiShop.Catalog.Services.FeatureSliderService.Abstract;
 using MultiShop.Catalog.Services.FeatureSliderService.Concrete;
 using MultiShop.Catalog.Services.SpecialOfferService.Abstract;
@@ -34,6 +36,7 @@ builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
 builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 builder.Services.AddScoped<ISpecialOfferService, SpecialOfferService>();
+builder.Services.AddScoped<IFeatureService, FeatureService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

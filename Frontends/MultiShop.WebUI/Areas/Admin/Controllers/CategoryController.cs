@@ -21,9 +21,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            ViewBag.v = "Kategori İşlemleri";
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Kategoriler";
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Kategoriler";
+            ViewBag.v2 = "Kategori İşlemleri";
             ViewBag.v3 = "Kategori Listesi";
 
             var client = _clientFactory.CreateClient();
@@ -42,9 +42,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateCategory")]
         public IActionResult CreateCategory()
         {
-            ViewBag.v = "Kategori İşlemleri";
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Yeni Kategori Girişi";
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Kategoriler";
+            ViewBag.v2 = "Kategori İşlemleri";
             ViewBag.v3 = "Kategori Listesi";
             return View();
         }
@@ -80,9 +80,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateCategory(string id)
         {
-            ViewBag.v = "Kategori İşlemleri";
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Kategori Güncelleme Sayfası";
+            ViewBag.v = "Ana Sayfa";
+            ViewBag.v1 = "Kategoriler";
+            ViewBag.v2 = "Kategori İşlemleri";
             ViewBag.v3 = "Kategori Listesi";
 
             var client = _clientFactory.CreateClient();
