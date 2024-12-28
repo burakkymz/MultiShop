@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
 using MultiShop.Catalog.Services.ProductImageServices.Abstract;
@@ -22,10 +23,10 @@ namespace MultiShop.Catalog.Controllers
             return Ok(values);
         }
 
-        [HttpGet("ProductImagesByProductId/{id}")]
-        public async Task<IActionResult> ProductImagesByProductId(string id)
+        [HttpGet("GetByProductIdProductImage")]
+        public async Task<IActionResult> GetByProductIdProductImage(string id)
         {
-            var values = await _productImageService.GetProductImageByIdAsync(id);
+            var values = await _productImageService.GetByProductIdProductImageAsync(id);
             return Ok(values);
         }
 
