@@ -24,6 +24,8 @@ using MultiShop.Catalog.Services.BrandService.Abstract;
 using MultiShop.Catalog.Services.BrandService.Concrete;
 using MultiShop.Catalog.Services.AboutService.Abstract;
 using MultiShop.Catalog.Services.AboutService.Concrete;
+using MultiShop.Catalog.Services.ContactServices.Abstract;
+using MultiShop.Catalog.Services.ContactServices.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +48,7 @@ builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IOfferDiscountService, OfferDiscountService>();
 builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
