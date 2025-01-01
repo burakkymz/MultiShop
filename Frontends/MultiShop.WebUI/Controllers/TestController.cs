@@ -1,20 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
 
-namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
+namespace MultiShop.WebUI.Controllers
 {
-    public class _NavbarUILayoutComponentPartial : ViewComponent
+    public class TestController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
 
-        public _NavbarUILayoutComponentPartial(IHttpClientFactory clientFactory)
+        public TestController(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+
+        public async Task<IActionResult> Index()
         {
             string token = "";
             using (var httpClient = new HttpClient())

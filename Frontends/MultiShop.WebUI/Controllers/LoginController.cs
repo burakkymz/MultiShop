@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
 using MultiShop.WebUI.Models;
-using MultiShop.WebUI.Services;
+using MultiShop.WebUI.Services.Abstract;
 using Newtonsoft.Json;
 using JsonNamingPolicy = System.Text.Json.JsonNamingPolicy;
 using JsonSerializerOptions = System.Text.Json.JsonSerializerOptions;
@@ -17,12 +17,14 @@ namespace MultiShop.WebUI.Controllers
     {
         private readonly IHttpClientFactory _clientFactory;
         private readonly ILoginService _loginService;
+        private readonly IIdentityService _identityService;
 
 
-        public LoginController(IHttpClientFactory clientFactory, ILoginService loginService)
+        public LoginController(IHttpClientFactory clientFactory, ILoginService loginService, IIdentityService identityService)
         {
             _clientFactory = clientFactory;
             _loginService = loginService;
+            _identityService = identityService;
         }
 
         [HttpGet]
@@ -70,6 +72,21 @@ namespace MultiShop.WebUI.Controllers
             }
 
             return View();
+        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> SingIn()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        public async Task<IActionResult> SingIn(SignInDto signInDto)
+        {
+            signInDto.Username = "burak01";
+            signInDto.Password = "12345Aa*";
+            await _identityService.SignIn(signInDto);
+            return RedirectToAction("Index", "Test");
         }
     }
 }
