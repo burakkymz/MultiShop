@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
+using MultiShop.WebUI.Services.CatalogServices.CategoryServices.Abstract;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,10 +10,12 @@ namespace MultiShop.WebUI.Controllers
     public class TestController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
+        private readonly ICategoryService _categoryService;
 
-        public TestController(IHttpClientFactory clientFactory)
+        public TestController(IHttpClientFactory clientFactory, ICategoryService categoryService)
         {
             _clientFactory = clientFactory;
+            _categoryService = categoryService;
         }
 
         public async Task<IActionResult> Index()
@@ -53,6 +56,12 @@ namespace MultiShop.WebUI.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Deneme()
+        {
+            var values = await _categoryService.GetAllCategoriesAsync();
+            return View(values);
         }
     }
 }
