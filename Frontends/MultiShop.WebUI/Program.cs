@@ -2,10 +2,22 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.WebUI.Handlers;
 using MultiShop.WebUI.Services.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.AboutService.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.AboutService.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.BrandService.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.BrandService.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.FeatureServices.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.FeatureServices.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.FeatureSliderService.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.FeatureSliderService.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.OfferDiscountServices.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.OfferDiscountServices.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferService.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferService.Concrete;
 using MultiShop.WebUI.Services.Concrete;
 using MultiShop.WebUI.Settings;
 
@@ -69,6 +81,36 @@ builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<ISpecialOfferService, SpecialOfferService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IFeatureSliderService, FeatureSliderService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IFeatureService, FeatureService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IOfferDiscountService, OfferDiscountService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IBrandService, BrandService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
