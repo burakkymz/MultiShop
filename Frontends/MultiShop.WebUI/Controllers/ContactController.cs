@@ -1,39 +1,38 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.ContactDtos;
+using MultiShop.WebUI.Services.CatalogServices.ContactServices.Abstract;
 using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly IHttpClientFactory _clientFactory;
+        private readonly IContactService _contactService;
 
-        public ContactController(IHttpClientFactory clientFactory)
+        public ContactController(IContactService contactService)
         {
-            _clientFactory = clientFactory;
+            _contactService = contactService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "İletişim";
+            ViewBag.directory3 = "Mesaj Gönder";
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(CreateContactDto createContactDto)
         {
+
             createContactDto.IsRead = false;
             createContactDto.SendDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            var client = _clientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createContactDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var response = client.PostAsync("https://localhost:7270/api/Contacts", stringContent);
-            if (response.Result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Default");
-            }
-            return View();
+            await _contactService.CreateContactAsync(createContactDto);
+            return RedirectToAction("Index", "Default");
+
         }
     }
 }

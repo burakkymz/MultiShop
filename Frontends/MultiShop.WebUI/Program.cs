@@ -8,6 +8,8 @@ using MultiShop.WebUI.Services.CatalogServices.BrandService.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.BrandService.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices.Concrete;
+using MultiShop.WebUI.Services.CatalogServices.ContactServices.Abstract;
+using MultiShop.WebUI.Services.CatalogServices.ContactServices.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.FeatureServices.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.FeatureServices.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.FeatureSliderService.Abstract;
@@ -128,6 +130,11 @@ builder.Services.AddHttpClient<IProductImageService, ProductImageService>(opt =>
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClient<IProductDetailService, ProductDetailService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
