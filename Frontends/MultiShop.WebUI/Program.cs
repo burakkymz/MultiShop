@@ -22,6 +22,8 @@ using MultiShop.WebUI.Services.CatalogServices.ProductServices.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.SpecialOfferService.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.SpecialOfferService.Concrete;
+using MultiShop.WebUI.Services.CommentServices.Abstract;
+using MultiShop.WebUI.Services.CommentServices.Concrete;
 using MultiShop.WebUI.Services.Concrete;
 using MultiShop.WebUI.Settings;
 
@@ -79,6 +81,7 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt =>
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
+#region Catalog
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
@@ -128,15 +131,19 @@ builder.Services.AddHttpClient<IProductDetailService, ProductDetailService>(opt 
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+#endregion
+
+builder.Services.AddHttpClient<ICommentService, CommentService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
