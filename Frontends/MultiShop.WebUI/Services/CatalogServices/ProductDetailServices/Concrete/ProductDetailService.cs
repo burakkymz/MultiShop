@@ -39,7 +39,7 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductDetailServices.Concret
 
         public async Task<GetByIdProductDetailDto> GetByProductIdProductDetailAsync(string id)
         {
-            var responseMessage = await _httpClient.GetAsync("productdetails/GetProductDetailByProductId/" + id);
+            var responseMessage = await _httpClient.GetAsync("productdetails/GetByProductIdProductDetail?id=" + id);
             var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductDetailDto>();
             return values;
         }
