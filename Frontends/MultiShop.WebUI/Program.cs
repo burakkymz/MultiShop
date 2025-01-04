@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.WebUI.Handlers;
 using MultiShop.WebUI.Services.Abstract;
+using MultiShop.WebUI.Services.BasketServices.Abstract;
+using MultiShop.WebUI.Services.BasketServices.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.AboutService.Abstract;
 using MultiShop.WebUI.Services.CatalogServices.AboutService.Concrete;
 using MultiShop.WebUI.Services.CatalogServices.BrandService.Abstract;
@@ -140,10 +142,18 @@ builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 #endregion
 
+//Comment
 builder.Services.AddHttpClient<ICommentService, CommentService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+
+//Basket
+builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 var app = builder.Build();
 

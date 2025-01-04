@@ -1,133 +1,19 @@
-   //Discount
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7271
-        }
-      ],
-      "UpstreamPathTemplate": "/services/discount/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "DiscountFullPermission" ]
-      }
 
-    },
-    //Order 
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7272
-        }
-      ],
-      "UpstreamPathTemplate": "/services/order/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "OrderFullPermission" ]
-      }
+            //var values = await GetBasket();
+            //if (values == null)
+            //{
+            //    values = new BasketTotalDto();
+            //    values.BasketItems = new List<BasketItemDto>();
+            //}
 
-    },
-    //Cargo 
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7273
-        }
-      ],
-      "UpstreamPathTemplate": "/services/cargo/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "CargoFullPermission" ]
-      }
+            //if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
+            //{
+            //    values.BasketItems.Add(basketItemDto);
+            //}
+            //else
+            //{
+            //    var existingItem = values.BasketItems.FirstOrDefault(x => x.ProductId == basketItemDto.ProductId);
+            //    existingItem.Quantity += basketItemDto.Quantity;
+            //}
 
-    },
-    //Basket
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7274
-        }
-      ],
-      "UpstreamPathTemplate": "/services/basket/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "BasketFullPermission" ]
-      }
-
-    },
-    //Comment
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7275
-        }
-      ],
-      "UpstreamPathTemplate": "/services/comment/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "CommentFullPermission" ]
-      }
-
-    },
-    //Payment
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7276
-        }
-      ],
-      "UpstreamPathTemplate": "/services/payment/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "PaymentFullPermission" ]
-      }
-
-    },
-    //Images
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7277
-        }
-      ],
-      "UpstreamPathTemplate": "/services/images/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "ImagesFullPermission" ]
-      }
-
-    }
+            //await SaveBasket(values);
