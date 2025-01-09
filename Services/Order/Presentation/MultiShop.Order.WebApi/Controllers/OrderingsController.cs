@@ -53,11 +53,11 @@ namespace MultiShop.Order.WebApi.Controllers
             return Ok("Sipariş Başarıyla Güncellendi");
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetOrderingByUserId(int id)
-        //{
-        //    var value = await _mediator.Send(new GetOrderingByUserIdQuery(id));
-        //    return Ok(value);
-        //}
+        [HttpGet("GetOrderingByUserId")]
+        public async Task<IActionResult> GetOrderingByUserId(string id)
+        {
+            var value = await _mediator.Send(new GetOrderingByUserIdQuery(id));
+            return Ok(value);
+        }
     }
 }
