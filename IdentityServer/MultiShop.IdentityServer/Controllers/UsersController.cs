@@ -38,5 +38,12 @@ namespace MultiShop.IdentityServer.Controllers
                 UserName = user.UserName
             });
         }
+
+        [HttpGet("GetAllUserList")]
+        public async Task<IActionResult> GetAllUserList()
+        {
+            var users = _userManager.Users.ToList();
+            return Ok(users);
+        }
     }
 }

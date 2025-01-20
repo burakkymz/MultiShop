@@ -23,7 +23,7 @@ namespace MultiShop.WebUI.Services.CommentServices.Concrete
 
         public async Task<List<ResultCommentDto>> CommentListByProductId(string id)
         {
-            var responseMessage = await _httpClient.GetAsync($"comments/CommentListByProductId?id=" +id);
+            var responseMessage = await _httpClient.GetAsync("comments/CommentListByProductId?id=" +id);
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultCommentDto>>(jsonData);
             return values;

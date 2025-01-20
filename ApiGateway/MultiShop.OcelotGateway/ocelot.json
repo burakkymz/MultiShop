@@ -106,7 +106,7 @@
           "Port": 7275
         }
       ],
-      "UpstreamPathTemplate": "/services/comment/{everything}",
+      "UpstreamPathTemplate": "/services/comments/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
