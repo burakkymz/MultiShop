@@ -43,7 +43,8 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Email = cargoCustomer.Email,
                 Address = cargoCustomer.Address,
                 District = cargoCustomer.District,
-                City = cargoCustomer.City
+                City = cargoCustomer.City,
+                UserCustomerId = cargoCustomer.UserCustomerId
             };
             _cargoCustomerService.TInsert(customer);
             return Ok("Kayıt Başarılı Bir Şekilde Eklendi");
@@ -68,10 +69,20 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Email = cargoCustomer.Email,
                 Address = cargoCustomer.Address,
                 District = cargoCustomer.District,
-                City = cargoCustomer.City
+                City = cargoCustomer.City,
+                UserCustomerId = cargoCustomer.UserCustomerId
             };
             _cargoCustomerService.TUpdate(customer);
             return Ok("Kayıt Başarılı Bir Şekilde Güncellendi");
         }
+
+        [HttpGet("GetCargoCustomerById")]
+        public IActionResult GetCargoCustomerById(string id)
+        {
+            var result = _cargoCustomerService.TGetCargoCustomerById(id);
+            return Ok(result);
+        }
+
     }
+
 }

@@ -1,8 +1,9 @@
 ﻿using MultiShop.DtoLayer.CargoDtos.CargoCustomerDtos;
+using MultiShop.WebUI.Services.CargoServices.CargoCustomerServices.Abstract;
 
 namespace MultiShop.WebUI.Services.CargoServices.CargoCustomerServices.Concrete
 {
-    public class CargoCustomerService
+    public class CargoCustomerService : ICargoCustomerService
     {
         private readonly HttpClient _httpClient;
         public CargoCustomerService(HttpClient httpClient)

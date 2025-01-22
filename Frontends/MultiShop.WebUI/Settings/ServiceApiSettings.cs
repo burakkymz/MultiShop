@@ -11,7 +11,7 @@
         public ServiceApi Cargo { get; set; }
         public ServiceApi Basket { get; set; }
         public ServiceApi Payment { get; set; }
-        public ServiceApi Comments { get; set; }
+        public ServiceApi Comment { get; set; }
         public ServiceApi Message { get; set; }
     }
 
