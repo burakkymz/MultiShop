@@ -40,7 +40,7 @@ To set up and run this project locally or in a production environment, make sure
 
 ## NuGet Packages
 The packages used in this project are
-These packages should be installed via the NuGet Package Manager or by using the dotnet add package command.
+These packages should be installed via the NuGet Package Manager or by using the ''dotnet add'' package command.
 
 - Microsoft.EntityFrameworkCore – ORM for managing SQL databases
 - Microsoft.EntityFrameworkCore.SqlServer – SQL Server provider for Entity Framework Core
