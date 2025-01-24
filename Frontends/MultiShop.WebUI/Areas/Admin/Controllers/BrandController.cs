@@ -19,7 +19,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void BrandViewBagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Markalar";
             ViewBag.v1 = "Markalar";
             ViewBag.v2 = "Marka Listesi";
             ViewBag.v3 = "Marka İşlemleri";

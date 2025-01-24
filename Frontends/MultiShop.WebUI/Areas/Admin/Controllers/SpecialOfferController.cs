@@ -20,7 +20,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void SpecialOfferViewBagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Özel Teklifler";
             ViewBag.v1 = "Özel Teklifler";
             ViewBag.v2 = "Özel Teklif ve Günün İndirim Listesi";
             ViewBag.v3 = "Kategori Listesi";

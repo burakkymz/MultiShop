@@ -16,6 +16,9 @@ namespace MultiShop.WebUI.Areas.User.Controllers
         }
         public async Task<IActionResult> Inbox()
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Mesajlarım";
+            ViewBag.directory3 = "Gelen Mesajlar";
             var user = await _userService.GetUserInfo();
             var values = await _messageService.GetInboxMessageAsync(user.Id);
             return View(values);
@@ -23,6 +26,9 @@ namespace MultiShop.WebUI.Areas.User.Controllers
 
         public async Task<IActionResult> SendBox()
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Mesajlarım";
+            ViewBag.directory3 = "Giden Mesajlar";
             var user = await _userService.GetUserInfo();
             var values = await _messageService.GetSendboxMessageAsync(user.Id);
             return View(values);

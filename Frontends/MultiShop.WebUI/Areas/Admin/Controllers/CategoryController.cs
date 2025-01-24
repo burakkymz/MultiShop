@@ -76,7 +76,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void CategoryViewBagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Kategoriler";
             ViewBag.v1 = "Kategoriler";
             ViewBag.v2 = "Kategori İşlemleri";
             ViewBag.v3 = "Kategori Listesi";

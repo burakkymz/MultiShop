@@ -20,7 +20,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void FeatureViewBagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Öne Çıkan Alanlar";
             ViewBag.v1 = "Öne Çıkan Alanlar";
             ViewBag.v2 = "Öne Çıkan Alan Listesi";
             ViewBag.v3 = "Ana Sayfa Öne Çıkan Alan İşlemleri";

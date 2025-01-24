@@ -67,7 +67,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void AboutViewbagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Hakımızda";
             ViewBag.v1 = "Hakımızda";
             ViewBag.v2 = "Hakımızda Listesi";
             ViewBag.v3 = "Hakımızda İşlemleri";

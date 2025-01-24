@@ -29,6 +29,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.v = "İstatistikler";
+            ViewBag.v1 = "İstatistikler";
+            ViewBag.v2 = "İstatistik İşlemleri";
+            ViewBag.v3 = "İstatistik Listesi";
+
             var geBrandCount = await _catalogStatisticService.GetBrandCount();
             var getProductCount = await _catalogStatisticService.GetProductCount();
             var getCategoryCount = await _catalogStatisticService.GetCategoryCount();

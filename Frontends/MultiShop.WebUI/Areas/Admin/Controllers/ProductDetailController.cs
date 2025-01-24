@@ -22,7 +22,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateProductDetail(string id)
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Ürünler";
             ViewBag.v1 = "Ürünler";
             ViewBag.v2 = "Ürün Açıklama ve Bilgi Güncelleme Sayfası";
             ViewBag.v3 = "Ürün İşlemleri";

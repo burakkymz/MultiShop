@@ -21,7 +21,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Yorumlar";
             ViewBag.v1 = "Yorumlar";
             ViewBag.v2 = "Yorum Listesi";
             ViewBag.v3 = "Yorum İşlemleri";

@@ -21,7 +21,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         void FeatureSliderViewBaglist()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "Öne Çıkan Görseller";
             ViewBag.v1 = "Öne Çıkan Görseller";
             ViewBag.v2 = "Öne Çıkan Görsel Listesi";
             ViewBag.v3 = "Öne Çıkan Görsel İşemleri";

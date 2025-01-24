@@ -248,6 +248,8 @@ builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat
     .AddDataAnnotationsLocalization();
 
 
+
+
 var app = builder.Build();
 
 
@@ -263,6 +265,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 var supportedCultures = new[] { "en", "fr", "de", "tr", "it" };
 var localizationOptions = new 

@@ -18,6 +18,9 @@ namespace MultiShop.WebUI.Areas.User.Controllers
 
         public async Task<IActionResult> MyOrderList()
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Siparişlerim";
+            ViewBag.directory3 = "Aktif Siparişlerim";
             var userInfo = await _userService.GetUserInfo();
             var values = await _orderingService.GetOrderingByUserId(userInfo.Id);
             return View(values);

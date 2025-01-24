@@ -30,6 +30,9 @@ namespace MultiShop.WebUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Hesabım";
+            ViewBag.directory3 = "Giriş Yap";
             return View();
         }
 
@@ -37,7 +40,7 @@ namespace MultiShop.WebUI.Controllers
         public async Task<IActionResult> Index(SignInDto signInDto)
         {
             await _identityService.SignIn(signInDto);
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Index", "Default");
         }
     }
 }

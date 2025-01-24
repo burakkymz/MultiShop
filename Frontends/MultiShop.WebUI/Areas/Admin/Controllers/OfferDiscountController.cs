@@ -18,7 +18,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         }
         void OfferDiscountViewBagList()
         {
-            ViewBag.v = "Ana Sayfa";
+            ViewBag.v = "İndirim Teklifleri";
             ViewBag.v1 = "İndirim Teklifleri";
             ViewBag.v2 = "İndirim Teklif Listesi";
             ViewBag.v3 = "İndirim Teklif İşlemleri";
