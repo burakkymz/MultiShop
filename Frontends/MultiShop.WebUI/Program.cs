@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Razor;
 using MultiShop.WebUI.Handlers;
 using MultiShop.WebUI.Services.Abstract;
 using MultiShop.WebUI.Services.BasketServices.Abstract;
@@ -100,6 +101,8 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+#region Services
 
 #region Catalog
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
@@ -211,6 +214,9 @@ builder.Services.AddHttpClient<ICargoCustomerService, CargoCustomerService>(opt 
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Cargo.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
+
+#endregion
+
 #region Statistic
 builder.Services.AddHttpClient<ICatalogStatisticService, CatalogStatisticService>(opt =>
 {
@@ -233,6 +239,15 @@ builder.Services.AddHttpClient<IUserStatisticService, UserStatisticService>(opt 
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 #endregion
 
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "Resources";
+});
+
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
+
+
 var app = builder.Build();
 
 
@@ -248,6 +263,13 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+var supportedCultures = new[] { "en", "fr", "de", "tr", "it" };
+var localizationOptions = new 
+    RequestLocalizationOptions().SetDefaultCulture(supportedCultures[3])
+    .AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",
