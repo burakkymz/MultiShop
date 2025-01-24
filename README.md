@@ -75,7 +75,7 @@ git clone https://github.com/srburak/MultiShop.git
 - Login Page
 ![loginpage](https://github.com/user-attachments/assets/a0742d3d-de45-4ed7-bdfa-826759dd711b)
 
--Register Page
+- Register Page
 ![registerpage](https://github.com/user-attachments/assets/7b478b0b-6d5c-4538-8cc9-1a2bfe7d81f1)
 
 - Admin / Brands Page
