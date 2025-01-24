@@ -5,28 +5,28 @@ This project is developed with ASP.NET Core 8.0, adopting a modern, microservice
 
 ## Project Features
 
-- Microservices Architecture: Implements Layered and Onion architectures, ensuring a flexible, scalable, and SOLID-compliant design.
-- Design Patterns: Incorporates Repository, CQRS, and Mediator patterns to enhance modularity and maintainability.
-- Security: Utilizes Identity Server and JWT for robust user authentication and authorization.
-- Database Support: Efficiently manages data with support for MSSQL, MongoDB, Redis, and PostgreSQL.
-- API Gateway: Uses Ocelot Gateway for seamless API routing, complemented by Swagger-generated documentation.
-- Real-Time Communication: Enables live updates and notifications with SignalR, eliminating the need for page reloads.
-- Testing and Validation: API functionality is rigorously tested and verified using Postman.
+- **Microservices Architecture:** Implements Layered and Onion architectures, ensuring a flexible, scalable, and SOLID-compliant design.
+- **Design Patterns:** Incorporates Repository, CQRS, and Mediator patterns to enhance modularity and maintainability.
+- **Security:** Utilizes Identity Server and JWT for robust user authentication and authorization.
+- **Database Support:** Efficiently manages data with support for MSSQL, MongoDB, Redis, and PostgreSQL.
+- **API Gateway:** Uses Ocelot Gateway for seamless API routing, complemented by Swagger-generated documentation.
+- **Real-Time Communication:** Enables live updates and notifications with SignalR, eliminating the need for page reloads.
+- **Testing and Validation:** API functionality is rigorously tested and verified using Postman.
 
 ## Technologies Used
 
-- Backend: ASP.NET Core 8.0 Web API
-- Databases: MSSQL, MongoDB, Redis, PostgreSQL
-- Containerization: Docker for streamlined deployment and management
-- Database Tools: DBeaver, Dapper for efficient data access and management
-- API Testing: Postman and Swagger for endpoint validation and documentation
-- Messaging Queue: RabbitMQ for reliable message handling
-- Cloud Storage: Google Cloud Storage for scalable data storage solutions
-- Architectural Patterns: Onion Architecture, CQRS, Mediator, and Repository Design Pattern for maintainable and modular design
-- Security: Identity Server and JWT for authentication and authorization
-- API Gateway: Ocelot Gateway for efficient API routing and aggregation
-- Real-Time Features: SignalR for live notifications and updates
-- Frontend Technologies: HTML, CSS, JavaScript, and Bootstrap
+- **Backend:** ASP.NET Core 8.0 Web API
+- **Databases:** MSSQL, MongoDB, Redis, PostgreSQL
+- **Containerization:** Docker for streamlined deployment and management
+- **Database Tools:** DBeaver, Dapper for efficient data access and management
+- **API Testing:** Postman and Swagger for endpoint validation and documentation
+- **Messaging Queue:** RabbitMQ for reliable message handling
+- **Cloud Storage:** Google Cloud Storage for scalable data storage solutions
+- **Architectural Patterns:** Onion Architecture, CQRS, Mediator, and Repository Design Pattern for maintainable and modular design
+- **Security:** Identity Server and JWT for authentication and authorization
+- **API Gateway:** Ocelot Gateway for efficient API routing and aggregation
+- **Real-Time Features:** SignalR for live notifications and updates
+- **Frontend Technologies:** HTML, CSS, JavaScript, and Bootstrap
 
 ## System Requirements
 To set up and run this project locally or in a production environment, make sure you have the following prerequisites installed:
@@ -40,7 +40,7 @@ To set up and run this project locally or in a production environment, make sure
 
 ## NuGet Packages
 The packages used in this project are
-These packages should be installed via the NuGet Package Manager or by using the ''dotnet add'' package command.
+These packages should be installed via the NuGet Package Manager or by using the ```bash dotnet add```  package command.
 
 - Microsoft.EntityFrameworkCore – ORM for managing SQL databases
 - Microsoft.EntityFrameworkCore.SqlServer – SQL Server provider for Entity Framework Core
@@ -55,8 +55,9 @@ These packages should be installed via the NuGet Package Manager or by using the
 ## Installation
 
 To clone the project:
-
+```bash 
 git clone https://github.com/srburak/MultiShop.git
+```
 
 ## Screenshots of the project
 - Home Page
