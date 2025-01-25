@@ -56,7 +56,7 @@ These packages should be installed via the NuGet Package Manager or by using the
 
 To clone the project:
 ```bash 
-git clone https://github.com/srburak/MultiShop.git
+git clone https://github.com/burakkymz/MultiShop.git
 ```
 
 ## Screenshots of the project
